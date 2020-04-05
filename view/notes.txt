@@ -1,0 +1,2 @@
+ini buat tampilan, bikin per folder disini, misalnya tampilan buat yg admin 1 folder sendiri
+buat user 1 folder sendiri, gitulah pokonya mah yg rapi

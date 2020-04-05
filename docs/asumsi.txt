@@ -1,0 +1,4 @@
+asumsi ERD:
+
+	- 1 ramen hanya bisa 1 restoran yg bikin (hanya ada di 1 restoran)
+	- 1 restoran bisa ada di beberapa kota atau negara

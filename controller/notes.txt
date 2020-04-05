@@ -1,0 +1,1 @@
+isi folder ini nanti semua yg berhubungan sama koneksi web dan databasenya
