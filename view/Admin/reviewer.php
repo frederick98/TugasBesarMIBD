@@ -139,7 +139,7 @@
                     <!-- *** Single Review Area *** -->
                     <!-- tabel daftar reviewer -->
                     <div>
-                        <table class="table table-hover table-striped" id="table_reviewer" style="display:none">
+                        <table class="table table-hover table-striped" id="table_reviewer">
                             <thead>
                                 <tr>
                                     <th>idReviewer</th>
