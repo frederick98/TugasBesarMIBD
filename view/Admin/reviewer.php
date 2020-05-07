@@ -142,7 +142,7 @@
                         <table class="table table-hover table-striped" id="table_reviewer">
                             <thead>
                                 <tr>
-                                    <th>idReviewer</th>
+                                    <th>ID Reviewer</th>
                                     <th>Username</th>
                                     <th>Nama</th>
                                     <th>E-Mail</th>

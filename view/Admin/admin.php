@@ -44,8 +44,8 @@
                         <div class="search-login-area d-flex align-items-center">
                             <!-- Top Search Area -->
                             <div class="top-search-area">
-                                <form action="#" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="Search">
+                                <form action="../../controller/search_bar.php" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="   Search">
                                     <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
@@ -104,22 +104,21 @@
     </header>
 <div class="w3-container ">
     <div class="w3-panel  w3-medium">
-      <h2>ADMIN CONTROL</h2>
+      <h2>Admin Control Page</h2>
     </div>
 <div class="kotak">
-    <form action="/action_page.php">
-        
+    <form method="POST" action="../../controller/admin_control.php">
         <label for="box">Menentukan berapa minimal review buat ramen biar masuk top 10 = </label>
-            <select id="rating" name="angkarating">
-                <option value="satu">1.0</option>
-                <option value="dua">2.0</option>
-                <option value="tiga" selected>3.0</option>
-                <option value="empat">4.0</option>
-                <option value="lima">5.0</option>
-                <option value="enam">6.0</option>
-                <option value="tujuh">7.0</option>
-                <option value="delapan">8.0</option>
-                <option value="sembilang">9.0</option>
+            <select id="review" name="angkareview">
+                <option value="satu" selected>1</option>
+                <option value="dua">2</option>
+                <option value="tiga">3</option>
+                <option value="empat">4</option>
+                <option value="lima">5</option>
+                <option value="enam">6</option>
+                <option value="tujuh">7</option>
+                <option value="delapan">8</option>
+                <option value="sembilang">9</option>
                 <option value="sepuluh">10</option>
             </select>
         <br></br>
@@ -137,7 +136,7 @@
             <option value="sepuluh">10</option>
         </select>
         <br></br>
-        <button class="button" style="vertical-align:middle"><span>Submit</span></button>
+        <button class="button" name="submit" style="vertical-align:middle"><span>Submit</span></button>
       </form>
 </div>
     <br>

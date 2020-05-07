@@ -1,3 +1,7 @@
+<?php
+    include ("../../controller/db_connect.php")
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +13,7 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Ramen Review</title>
+    <title>All Restaurant List</title>
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../lib/admin/style.css">
@@ -109,7 +113,7 @@
                 <!-- Breadcrumb Text -->
                 <div class="col-12">
                     <div class="breadcrumb-text">
-                        <h2>Restaurant Review</h2>
+                        <h2>Restaurant List</h2>
                     </div>
                 </div>
             </div>
@@ -123,22 +127,51 @@
             <div class="row">
                 <div class="col-12">
 
-                    <!-- *** Single Review Area *** -->
+                    <!-- tabel daftar restoran -->
+                    <div>
+                        <table class="table table-hover table-striped" id="table_ramen">
+                            <thead>
+                                <tr>
+                                    <th>ID Restoran</th>
+                                    <th>Nama Kota</th>
+                                    <th>Nama Restoran</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql = "select * from restoran
+                                                inner join Kota on restoran.idKota = Kota.idKota";
+                                    $resultRestoranList = mysqli_query($connection, $sql);
+                                    while ($row = mysqli_fetch_array($resultRestoranList)) {
+                                        echo "<tr>";
+                                        echo "<td>" . $row['idRestoran'] . "</td>";
+                                        echo "<td>" . $row['namaKota'] . "</td>";
+                                        echo "<td>" . $row['namaRestoran'] . "</td>";
+                                        echo "</tr>";
+                                    // mysqli_close($connection);
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!--
+                    <!-- *** Single Review Area *** --
                     <div class="single-game-review-area d-flex flex-wrap mb-30">
                         <div class="game-thumbnail">
                             <img src="../lib/admin/img/bg-img/restaurant1.jpg" alt="">
                         </div>
                         <div class="game-content">
-                            <a href="" class="game-title">Ramen Ippudo</a><!--Nama Restauant Ramen-->
+                            <a href="" class="game-title">Ramen Ippudo</a><!--Nama Restauant Ramen--
                             <div class="game-meta">
-                                <a href="#" class="game-date">May 05, 2020</a> <!--Tanggal Review-->
-                                <a href="#" class="game-comments">Andi Ramen</a><!--Nama reviewer-->
+                                <a href="#" class="game-date">May 05, 2020</a> <!--Tanggal Review--
+                                <a href="#" class="game-comments">Andi Ramen</a><!--Nama reviewer--
                             </div>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
-                            <!--Rating Area -->
+                            <!--Rating Area --
                             <div class="download-rating-area d-flex align-items-center justify-content-between">
                                 <div class="rating-area text-center">
-                                    <h3>9.1</h3><!--Nilai-->
+                                    <h3>9.1</h3><!--Nilai--
                                     <div class="stars">
                                         <i class="fa fa-star" aria-hidden="true"></i>
                                         <i class="fa fa-star" aria-hidden="true"></i>
@@ -150,6 +183,7 @@
                             </div>
                         </div>
                     </div>
+                    -->
 
                     <!-- ### Pagination Area ### -->
                     <nav aria-label="Page navigation example">
