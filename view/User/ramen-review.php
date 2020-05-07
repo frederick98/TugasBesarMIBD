@@ -35,7 +35,7 @@
                     <div class="col-12 d-flex align-items-center justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="index.html"><img src="../lib/user/img/core-img/Ramenku.jpg" alt=""></a>
+                            <a href="user.php"><img src="../lib/user/img/core-img/Ramenku.jpg" alt=""></a>
                         </div>
 
                         <!-- Search & Login Area -->
@@ -49,7 +49,7 @@
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                                <a href="../index.php"><span>Log Out</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -80,12 +80,12 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="game-review.html">Ramen</a></li>
-                                    <li><a href="restaurant-review.html">Restaurant</a></li>
-                                    <li><a href="reviewer.html">Our Reviewer</a></li>
-                                    <li><a href="make-review.html">Make Your own Review</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="user.php">Home</a></li>
+                                    <li><a href="ramen-review.php">Ramen</a></li>
+                                    <li><a href="restaurant-review.php">Restaurant</a></li>
+                                    <li><a href="reviewer.php">Our Reviewer</a></li>
+                                    <li><a href="make-review.php">Make Your own Review</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->

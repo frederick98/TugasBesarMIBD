@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<head>
+<?php
+    include "../../controller/top10_ramen.php";
+    session_start();
+?>
 
-</head>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="description" content="">
@@ -12,14 +14,15 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Welcome ADMIN!</title>
+    <title>Welcome to Ramenku</title>
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="../lib/admin/style.css">
+    <link rel="stylesheet" href="../lib/user/style.css">
 
 </head>
 
 <body>
+    <!-- Preloader -->
     <div class="preloader d-flex align-items-center justify-content-center">
         <div class="spinner">
             <div class="bounce1"></div>
@@ -37,21 +40,21 @@
                     <div class="col-12 d-flex align-items-center justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="admin.php"><img src="../lib/admin/img/core-img/Ramenku.jpg" alt=""></a>
+                            <a href="user.php"><img src="../lib/user/img/core-img/Ramenku.jpg" alt=""></a>
                         </div>
 
                         <!-- Search & Login Area -->
                         <div class="search-login-area d-flex align-items-center">
                             <!-- Top Search Area -->
                             <div class="top-search-area">
-                                <form action="../../controller/search_bar.php" method="post">
-                                    <input type="search" name="top-search" id="topSearch" placeholder="   Search">
+                                <form action="#" method="post">
+                                    <input type="search" name="top-search" id="topSearch" placeholder="Search">
                                     <button type="submit" class="btn"><i class="fa fa-search"></i></button>
                                 </form>
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="../index.php"><span>LOG OUT</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                                <a href="../index.php"><span>Log Out</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -82,10 +85,12 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="admin.php">Home</a></li>
+                                    <li><a href="user.php">Home</a></li>
                                     <li><a href="ramen-review.php">Ramen</a></li>
                                     <li><a href="restaurant-review.php">Restaurant</a></li>
-                                    <li><a href="reviewer.php">Reviewer</a></li>
+                                    <li><a href="reviewer.php">Our Reviewer</a></li>
+                                    <li><a href="make-review.php">Make Your own Review</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -102,45 +107,48 @@
             </div>
         </div>
     </header>
-<div class="w3-container ">
-    <div class="w3-panel  w3-medium">
-      <h2>Admin Control Page</h2>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <div class="hero-area">
+        <!-- Hero Post Slides -->
+        <div class="hero-post-slides owl-carousel">
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(../lib/user/img/bg-img/carousel1.jpg);">
+                <!-- Blog Content -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                                <h2 data-animation="fadeInUp" data-delay="400ms">Welcome to Ramenku</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">Hi, Welcome to our website. You can see our review of the latest Ramen and Ramen Restaurants</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Slide -->
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(lib/user/img/bg-img/carousel2.jpg);">
+                <!-- Blog Content -->
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <div class="col-12 col-lg-9">
+                            <div class="blog-content" data-animation="fadeInUp" data-delay="100ms">
+                                <h2 data-animation="fadeInUp" data-delay="400ms">Become our Reviewer</h2>
+                                <p data-animation="fadeInUp" data-delay="700ms">Be our reviewer to review the ramen and ramen restaurants that you visit and give your ratings</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-<div class="kotak">
-    <form method="POST" action="../../controller/admin_control.php">
-        <label for="box">Menentukan berapa minimal review buat ramen biar masuk top 10 = </label>
-            <select id="review" name="angkareview">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8">8</option>
-                <option value="9">9</option>
-                <option value="10">10</option>
-            </select>
-        <br></br>
-        <label for="lname">Masukin rentang rating buat user (angka saja) = </label>
-        <select id="rating" name="angkarating">
-            <option value="1"selected>1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-        <br></br>
-        <button class="button" name="submit" style="vertical-align:middle"><span>Submit</span></button>
-      </form>
-</div>
-    <br>
-         <!-- ##### Top 10 Area Start ##### -->
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### Top 10 Area Start ##### -->
     <section class="monthly-picks-area section-padding-100 bg-pattern">
         <div class="container">
             <div class="row">
@@ -149,7 +157,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -157,32 +165,44 @@
                     <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Top 10 Review's</h2>
                 </div>
             </div>
-            <div class = "urutanrating">
-                <label for="lname">Memilih Rating </label>
-                <select id="rating" name="angkarating">
-                    <option value="satu"selected>1.0</option>
-                    <option value="dua">2.0</option>
-                    <option value="tiga" >3.0</option>
-                    <option value="empat">4.0</option>
-                    <option value="lima">5.0</option>
-                    <option value="enam">6.0</option>
-                    <option value="tujuh">7.0</option>
-                    <option value="delapan">8.0</option>
-                    <option value="sembilang">9.0</option>
-                    <option value="sepuluh">10</option>
-                </select>
+
+            <div class="row">
+                <div class="col-12">
+                    <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="ramen-tab" data-toggle="tab" href="#ramen" role="tab" aria-controls="popular" aria-selected="true">Ramen</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <br>
         </div>
 
         <div class="tab-content wow fadeInUp" data-wow-delay="500ms" id="myTabContent">
             <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="ramen-tab">
                 <!-- Top 10 Ramen Slideshow -->
                 <div class="popular-games-slideshow owl-carousel">
+                    <?php
+                        $sql1 = "select top 1 minReview from config";
+                        $minRev = mysqli_query($connection, $sql1);
 
+                        $sql2 = "select top 10 * 
+                                    from ramen
+                                        inner join dibuatdi on dibuatdi.idRamen = ramen.idRamen
+                                        inner join restoran on dibuatdi.idRestoran = restoran.idRestoran
+                                        inner join(
+                                            select idRamen, count(review.idReview) as 'totalReview'
+                                                from ramen
+                                                    inner join review on review.idRamen = ramen.idRamen
+                                                group by idRamen
+                                        ) as tbTotal on tbTotal.idRamen = ramen.idRamen";
+                        
+                        echo "<h1>" .$sql2. "</h1>";
+                        //$result = mysqli_query($connection, $sql2);
+
+                    ?>
                     <!-- Ramen -->
                     <div class="single-games-slide">
-                        <img src="../lib/admin/img/bg-img/beef-ramen.jpg" alt="">
+                        <!-- <img src="lib/user/img/bg-img/beef-ramen.jpg" alt=""> -->
                         <div class="slide-text">
                             <a href="#" class="game-title">Beef Ramen</a>
                             <div class="meta-data">
@@ -202,16 +222,15 @@
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="../lib/admin/js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../lib/user/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="../lib/admin/js/bootstrap/popper.min.js"></script>
+    <script src="../lib/user/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="../lib/admin/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../lib/user/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="../lib/admin/js/plugins/plugins.js"></script>
+    <script src="../lib/user/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="../lib/admin/js/active.js"></script>
+    <script src="../lib/user/js/active.js"></script>
 </body>
-    
-    
-    </body>
+
+</html>

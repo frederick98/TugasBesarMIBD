@@ -30,7 +30,7 @@
                 echo 
                     "<script> 
                         alert('Welcome, User!');
-                        window.location.href='../view/index.php';
+                        window.location.href='../view/User/user.php';
                     </script>";
             }
         }
