@@ -1,9 +1,14 @@
+-- frederick
+-- thomas christian
+-- vincentius dwi
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 06, 2020 at 07:41 PM
+-- Generation Time: May 07, 2020 at 06:56 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,6 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `tugasbesarmibdramen`
 --
+CREATE DATABASE IF NOT EXISTS `tugasbesarmibdramen` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci;
+USE `tugasbesarmibdramen`;
 
 -- --------------------------------------------------------
 
@@ -33,6 +40,15 @@ CREATE TABLE `dibuatdi` (
   `idRestoran` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
+--
+-- Dumping data for table `dibuatdi`
+--
+
+INSERT INTO `dibuatdi` (`idRamen`, `idRestoran`) VALUES
+(1, 1),
+(2, 1),
+(3, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -42,8 +58,16 @@ CREATE TABLE `dibuatdi` (
 CREATE TABLE `kota` (
   `idKota` int(20) NOT NULL,
   `idNegara` int(20) NOT NULL,
-  `namaKota` int(100) NOT NULL
+  `namaKota` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Dumping data for table `kota`
+--
+
+INSERT INTO `kota` (`idKota`, `idNegara`, `namaKota`) VALUES
+(1, 1, 'Jakarta'),
+(2, 1, 'Bandung');
 
 -- --------------------------------------------------------
 
@@ -55,6 +79,14 @@ CREATE TABLE `negara` (
   `idNegara` int(20) NOT NULL,
   `namaNegara` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Dumping data for table `negara`
+--
+
+INSERT INTO `negara` (`idNegara`, `namaNegara`) VALUES
+(1, 'Indonesia'),
+(2, 'Singapura');
 
 -- --------------------------------------------------------
 
@@ -76,7 +108,12 @@ CREATE TABLE `pengguna` (
 --
 
 INSERT INTO `pengguna` (`idUser`, `username`, `password`, `nama`, `email`, `kategori`) VALUES
-(1, 'admin', 'admin', 'Admin 1', 'admin@ramenku.com', 0);
+(1, 'admin', 'admin', 'Admin 1', 'admin@ramenku.com', 0),
+(2, 'volkz', 'volkz', 'Volkz', 'volkz@ramenku.com', 1),
+(3, 'suneo27', 'suneo27', 'Thomas Christian', 'suneogiantnobita@blabla.com', 1),
+(4, 'elle787', 'elle787', 'Elle', 'elle787@mail.com', 1),
+(5, 'verra89', 'verra89', 'Verra Tan', 'verra89@gmail.com', 1),
+(6, 'gerald2009', 'gerald2009', 'Gerald', 'gerald2009@mail.com', 1);
 
 -- --------------------------------------------------------
 
@@ -90,6 +127,15 @@ CREATE TABLE `ramen` (
   `harga` int(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
+--
+-- Dumping data for table `ramen`
+--
+
+INSERT INTO `ramen` (`idRamen`, `namaRamen`, `harga`) VALUES
+(1, 'Chicken TantanMen', 25000),
+(2, 'Pork TantanMen', 28000),
+(3, 'Chicken Shoyu', 22000);
+
 -- --------------------------------------------------------
 
 --
@@ -101,6 +147,14 @@ CREATE TABLE `restoran` (
   `idKota` int(20) NOT NULL,
   `namaRestoran` varchar(100) COLLATE utf8_general_mysql500_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Dumping data for table `restoran`
+--
+
+INSERT INTO `restoran` (`idRestoran`, `idKota`, `namaRestoran`) VALUES
+(1, 1, 'Ippudo'),
+(2, 1, 'Menya Sakura');
 
 -- --------------------------------------------------------
 
@@ -116,6 +170,15 @@ CREATE TABLE `review` (
   `tglReview` datetime NOT NULL,
   `rating` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`idReview`, `idUser`, `idRamen`, `review`, `tglReview`, `rating`) VALUES
+(1, 4, 1, 'gila enak banget!', '2020-05-04 12:20:22', 9.5),
+(2, 5, 2, 'lumayan memuaskan!', '2020-05-03 16:39:33', 8.5),
+(3, 6, 3, 'sesuai dengan harganya!', '2020-05-02 16:26:39', 7);
 
 --
 -- Indexes for dumped tables
@@ -176,37 +239,37 @@ ALTER TABLE `review`
 -- AUTO_INCREMENT for table `kota`
 --
 ALTER TABLE `kota`
-  MODIFY `idKota` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idKota` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `negara`
 --
 ALTER TABLE `negara`
-  MODIFY `idNegara` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idNegara` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pengguna`
 --
 ALTER TABLE `pengguna`
-  MODIFY `idUser` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idUser` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `ramen`
 --
 ALTER TABLE `ramen`
-  MODIFY `idRamen` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRamen` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `restoran`
 --
 ALTER TABLE `restoran`
-  MODIFY `idRestoran` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idRestoran` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `idReview` int(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idReview` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
