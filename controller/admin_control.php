@@ -2,7 +2,7 @@
     require('db_connect.php');
     session_start();
 
-    if(isset($_POST['submit']) ){
+    if(isset($_POST['submit'])){
         $review = $_POST['angkareview'];
         $rating = $_POST['angkarating'];
 
@@ -10,12 +10,7 @@
         mysqli_query($connection, $sql1);
 
         $sql2 = "insert into config (minReview, rating) values ('$review', '$rating')";
-
-        //echo "<h1>" .$review. "</h1>";
-        //echo "<h1>" .$rating. "</h1>";
-
         mysqli_query($connection, $sql2);
-
 
         echo 
             "<script> 
@@ -23,4 +18,51 @@
                 window.location.href='../view/Admin/admin.php';
             </script>";
     }
+
+    
+
+
+
+
+
+/*
+    if(isset($_POST['username']) and isset($_POST['pass'])){
+        // masukin value POST ke variable
+        $username = $_POST['username'];
+        $password = $_POST['pass'];
+
+        // check record dari tabel
+        $query = "select * from pengguna where username='$username' and password='$password'";
+
+        $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
+        $count = mysqli_num_rows($result);
+
+        if($count > 0){
+            $row = mysqli_fetch_array($result);
+            if($row['kategori'] == 0){
+                $_SESSION['name'] = $row['nama'];
+                echo 
+                    "<script> 
+                        alert('Welcome, Admin!');
+                        window.location.href='../view/Admin/admin.php';
+                    </script>";
+            }
+            else{
+                $_SESSION['name'] = $row['nama'];
+                echo 
+                    "<script> 
+                        alert('Welcome, User!');
+                        window.location.href='../view/index.php';
+                    </script>";
+            }
+        }
+        else{
+            echo 
+                "<script type='text/javascript'> 
+                    alert('Username / Password invalid!');
+                    window.location.href='../view/User/login.php';
+                </script>";
+        }
+    }
+    */
 ?>

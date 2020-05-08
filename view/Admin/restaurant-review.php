@@ -139,9 +139,8 @@
                             </thead>
                             <tbody>
                                 <?php
-                                    $sql = "select * 
-                                                from restoran
-                                                    inner join Kota on restoran.idKota = Kota.idKota";
+                                    $sql = "select * from restoran
+                                                inner join Kota on restoran.idKota = Kota.idKota";
                                     $resultRestoranList = mysqli_query($connection, $sql);
                                     while ($row = mysqli_fetch_array($resultRestoranList)) {
                                         echo "<tr>";
