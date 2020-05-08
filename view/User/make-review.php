@@ -1,3 +1,8 @@
+<?php
+    session_start();
+    include "../../controller/db_connect.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -105,7 +110,7 @@
     <!-- ##### Header Area End ##### -->
 
     <!-- ##### Breadcrumb Area Start ##### -->
-    <div class="breadcrumb-area bg-img bg-overlay" style="background-image: url(img/bg-img/carousel1.jpg);">
+    <div class="breadcrumb-area bg-img bg-overlay" style="background-image: url(../lib/user/img/bg-img/carousel1.jpg);">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <!-- Breadcrumb Text -->
@@ -122,53 +127,75 @@
     <!-- ##### Ramen Review Area Start ##### -->
     <div class="container-contact100">
 		<div class="wrap-contact100">
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" action="../../controller/submit_form.php" method="POST">
 				<span class="contact100-form-title">
-					Make Your own Review
+					You know some registered Ramen? Fill here.
 				</span>
 
-				<div class="wrap-input100 validate-input bg1">
-					<span class="label-input100">Ramen name</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Ramen Name">
-				</div>
-
 				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">Choose Ramen if you already have it</span>
+					<span class="label-input100">Choose Ramen's name</span>
 					<div>
-						<select class="js-select2" name="service">
+						<select class="js-select2" name="ramenDropdown">
 							<option>-</option>
-							<option>Ramen A</option>
-							<option>Ramen B</option>
-							<option>Ramen C</option>
-							<option>Ramen D</option>
+							<?php
+                                // ambil daftar ramen dari database
+                                $sql = "select namaRamen from Ramen";
+                                $result = mysqli_query($connection, $sql);
+
+                                while($row = mysqli_fetch_array($result)){
+                                    $ramen = $row['namaRamen'];
+                                    echo "<option>" . $ramen . "</option>";
+                                }
+                            ?>
 						</select>
-						<div class="dropDownSelect2"></div>
 					</div>
 				</div>
 
 				<div class="wrap-input100 validate-input bg1">
-					<span class="label-input100">Ramen price</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Ramen Price">
-				</div>
+					<span class="label-input100">Same Restaurant Name? Choose here</span>
+                    <select class="js-select2" name="restoranDropdown">
+						<option>-</option>
+						<?php
+                            // ambil daftar ramen dari database
+                            $sql = "select namaRestoran from restoran";
+                            $result = mysqli_query($connection, $sql);
 
-				<div class="wrap-input100 validate-input bg1">
-					<span class="label-input100">Restaurant Name</span>
-					<input class="input100" type="text" name="name" placeholder="Enter Restaurant Name">
-				</div>
-
-				<div class="wrap-input100 input100-select bg1">
-					<span class="label-input100">Choose Restaurant if you already have it</span>
+                            while($row = mysqli_fetch_array($result)){
+                                $restoran = $row['namaRestoran'];
+                                echo "<option>" . $restoran . "</option>";
+                            }
+                        ?>
+					</select>
+                    <br>
+					<span class="label-input100">Different Restaurant? insert here</span>
+                    <input class="input100" type="text" name="restoranName" placeholder="Enter Restaurant Name">
+                    <span class="label-input100">Enter New Restaurant City</span>
+					<input class="input100" type="text" name="restoranCityInsert" placeholder="Enter Restaurant City">
+                    <span class="label-input100">Different place, different Ramen's Price? insert the price</span>
+					<input class="input100" type="text" name="ramenPrice" placeholder="Enter Ramen Price">
+				
+                    <span class="label-input100">Choose Restaurant's City</span>
 					<div>
-						<select class="js-select2" name="service">
+						<select class="js-select2" name="kotaDropdown">
 							<option>-</option>
-							<option>Restaurant A</option>
-							<option>Restaurant B</option>
-							<option>Restaurant C</option>
-							<option>Restaurant D</option>
+                            <?php
+                                // ambil daftar restoran dari database
+                                $sql = "select distinct namaKota 
+                                            from restoran 
+                                                inner join kota on kota.idKota = restoran.idKota";
+                                $result = mysqli_query($connection, $sql);
+
+                                while($row = mysqli_fetch_array($result)){
+                                    $restoran = $row['namaKota'];
+                                    echo "<option>" . $restoran . "</option>";
+                                }
+                            ?>
 						</select>
-						<div class="dropDownSelect2"></div>
+						<!-- <div class="dropDownSelect2"></div> -->
 					</div>
                 </div>
+
+				
                 
                 <div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
 					<span class="label-input100">Ramen Picture</span>
@@ -179,8 +206,107 @@
 					</button>
 				</div>
 
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
+				<!-- <div class="wrap-input100 bg1 rs1-wrap-input100">
 					<span class="label-input100">Score Restaurant Review</span>
+					<button class="contact100-form-btn">
+						<span>
+							Enter Your Picture Here
+						</span>
+					</button>
+				</div> -->
+
+				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
+					<span class="label-input100">Score Ramen Review</span>
+					<input class="input100" type="text" name="email" placeholder="Enter Your Score ">
+				</div>
+
+				<!-- <div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Score Restaurant Review</span>
+					<input class="input100" type="text" name="phone" placeholder="Enter Your Score">
+				</div> -->
+
+				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
+					<span class="label-input100">What your review</span>
+					<textarea class="input100" name="ramenReview" placeholder="Your review here..."></textarea>
+				</div>
+
+				<div class="container-contact100-form-btn">
+					<button class="contact100-form-btn" name="submit">
+						<span>
+							Submit
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+
+            <br>
+            <br>
+            <br>
+
+            <form class="contact100-form validate-form" action="../../controller/submit_form1.php" method="POST">
+				<span class="contact100-form-title">
+					Completely New Ramen? Let us know by filling below!
+				</span>
+
+				<div class="wrap-input100 validate-input bg1">
+					<span class="label-input100">Ramen Name</span>
+					<input class="input100" type="text" name="ramenName" placeholder="Enter Ramen Name">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1">
+					<span class="label-input100">Ramen price</span>
+					<input class="input100" type="text" name="ramenPrice" placeholder="Enter Ramen Price">
+				</div>
+
+				<div class="wrap-input100 validate-input bg1">
+					<span class="label-input100">Restaurant Name</span>
+                    <input class="input100" type="text" name="restoranName" placeholder="Enter Restaurant Name">
+                    <span class="label-input100">Enter New Restaurant City</span>
+					<input class="input100" type="text" name="restoranCityInsert" placeholder="Enter Restaurant City">
+				</div>
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Check if the restaurant has registered</span>
+					<div>
+						<select class="js-select2" name="restoranDropdown">
+							<option>-</option>
+                            <?php
+                                // ambil daftar restoran dari database
+                                $sql = "select namaRestoran from Restoran";
+                                $result = mysqli_query($connection, $sql);
+
+                                while($row = mysqli_fetch_array($result)){
+                                    $restoran = $row['namaRestoran'];
+                                    echo "<option>" . $restoran . "</option>";
+                                }
+                            ?>
+						</select>
+						<!-- <DIV CLASS="DROPDOWNSELECT2"></DIV> -->
+                    </div>
+                    <span class="label-input100">Choose Restaurant's City</span>
+					<div>
+						<select class="js-select2" name="kotaDropdown">
+							<option>-</option>
+                            <?php
+                                // ambil daftar restoran dari database
+                                $sql = "select distinct namaKota 
+                                            from restoran 
+                                                inner join kota on kota.idKota = restoran.idKota";
+                                $result = mysqli_query($connection, $sql);
+
+                                while($row = mysqli_fetch_array($result)){
+                                    $restoran = $row['namaKota'];
+                                    echo "<option>" . $restoran . "</option>";
+                                }
+                            ?>
+						</select>
+						<!-- <div class="dropDownSelect2"></div> -->
+					</div>
+                </div>
+                
+                <div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Ramen Picture</span>
 					<button class="contact100-form-btn">
 						<span>
 							Enter Your Picture Here
@@ -188,23 +314,46 @@
 					</button>
 				</div>
 
-				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
-					<span class="label-input100">Score Ramen Review</span>
-					<input class="input100" type="text" name="email" placeholder="Enter Your Score ">
+				<!-- <div class="wrap-input100 bg1 rs1-wrap-input100">
+					<span class="label-input100">Score Restaurant Review</span>
+					<button class="contact100-form-btn">
+						<span>
+							Enter Your Picture Here
+						</span>
+					</button>
+				</div> -->
+
+				<div class="wrap-input100 input100-select bg1">
+					<span class="label-input100">Pick Ramen's Rating</span>
+                    <select class="js-select2" name="ramenRatingDropdown">
+						<option>-</option>
+                        <?php
+                             // ambil daftar restoran dari database
+                            $sql = "select rating 
+                                        from config";
+                            $result = mysqli_query($connection, $sql);
+
+                            while($row = mysqli_fetch_array($result)){
+                                $restoran = $row['namaKota'];
+                                echo "<option>" . $restoran . "</option>";
+                            }
+                        ?>
+					</select>
+					<!-- <input class="input100" type="text" name="email" placeholder="Enter Your Score "> -->
 				</div>
 
-				<div class="wrap-input100 bg1 rs1-wrap-input100">
+				<!-- <div class="wrap-input100 bg1 rs1-wrap-input100">
 					<span class="label-input100">Score Restaurant Review</span>
 					<input class="input100" type="text" name="phone" placeholder="Enter Your Score">
-				</div>
+				</div> -->
 
 				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
 					<span class="label-input100">What your review</span>
-					<textarea class="input100" name="message" placeholder="Your review here..."></textarea>
+					<textarea class="input100" name="ramenReview" placeholder="Your review here..."></textarea>
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" name="submit">
 						<span>
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

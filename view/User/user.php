@@ -185,18 +185,23 @@
                         $sql1 = "select top 1 minReview from config";
                         $minRev = mysqli_query($connection, $sql1);
 
-                        $sql2 = "select top 10 * 
+                        $sql2 = "select * 
                                     from ramen
                                         inner join dibuatdi on dibuatdi.idRamen = ramen.idRamen
-                                        inner join restoran on dibuatdi.idRestoran = restoran.idRestoran
-                                        inner join(
-                                            select idRamen, count(review.idReview) as 'totalReview'
-                                                from ramen
-                                                    inner join review on review.idRamen = ramen.idRamen
-                                                group by idRamen
-                                        ) as tbTotal on tbTotal.idRamen = ramen.idRamen";
+                                        inner join restoran on restoran.idRestoran = dibuatdi.idRestoran
+                                        inner join review on review.idRamen = ramen.idRamen
+                                        left outer join(
+                                            select ramen.idRamen, count(review.idReview) as 'total'
+                                                from review
+                                                    inner join ramen on ramen.idRamen = review.idRamen
+                                                group by ramen.idRamen
+                                        ) as tR on tR.idRamen = ramen.idRamen
+                                    where(tR.total > '$minRev')";
+                        $semuaRamen = mysqli_query($connection, $sql2);
                         
-                        echo "<h1>" .$sql2. "</h1>";
+                        echo "<h1>" .$semuaRamen. "</h1>";
+
+                        //echo "<h1>" .$sql2. "</h1>";
                         //$result = mysqli_query($connection, $sql2);
 
                     ?>
