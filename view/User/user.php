@@ -199,10 +199,32 @@
                                     where(tR.total > '$minRev')";
                         $semuaRamen = mysqli_query($connection, $sql2);
                         
-                        echo "<h1>" .$semuaRamen. "</h1>";
+                        $totalRamen = mysqli_num_rows($semuaRamen);
+                        
+                        // Ramen 
+                        $i = 1;
+                        while($i<=10){
+                            $rate = $row['rating'];
+                            $namaResto = $row['namaRestoran'];
+                            $namaRamen = $row['namaRamen'];
+                            $harga = $row['harga'];
 
-                        //echo "<h1>" .$sql2. "</h1>";
-                        //$result = mysqli_query($connection, $sql2);
+                        echo '
+                            <div class="single-games-slide">
+                                <!-- <img src="lib/user/img/bg-img/beef-ramen.jpg" alt=""> -->
+                                <div class="slide-text">';
+                                    echo 
+                                        '<a href="#" class="game-title">' . $namaRamen . '</a>';
+                                    echo'
+                                    <div class="meta-data">';
+                                        echo '<a href="#">' . $rate . '</a>';
+                                        echo '<a href="#">' . $namaResto .'</a>';
+                                    echo'
+                                    </div>
+                                </div>
+                            </div>';
+                            $i += 1;
+                        }
 
                     ?>
                     <!-- Ramen -->
@@ -216,9 +238,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!--Input top 10 tingal copas dari yang ramen-->
-
                 </div>
             </div>
         </div>
