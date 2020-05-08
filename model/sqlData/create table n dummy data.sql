@@ -1,9 +1,14 @@
+-- frederick
+-- thomas christian
+-- vincentius dwi
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 07, 2020 at 08:57 PM
+-- Generation Time: May 07, 2020 at 06:56 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -21,24 +26,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `tugasbesarmibdramen`
 --
-
--- --------------------------------------------------------
-
---
--- Table structure for table `config`
---
-
-CREATE TABLE `config` (
-  `minReview` int(10) NOT NULL,
-  `rating` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
-
---
--- Dumping data for table `config`
---
-
-INSERT INTO `config` (`minReview`, `rating`) VALUES
-(8, 6);
+CREATE DATABASE IF NOT EXISTS `tugasbesarmibdramen` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_mysql500_ci;
+USE `tugasbesarmibdramen`;
 
 -- --------------------------------------------------------
 
