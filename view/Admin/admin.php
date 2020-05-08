@@ -110,30 +110,30 @@
     <form method="POST" action="../../controller/admin_control.php">
         <label for="box">Menentukan berapa minimal review buat ramen biar masuk top 10 = </label>
             <select id="review" name="angkareview">
-                <option value="satu" selected>1</option>
-                <option value="dua">2</option>
-                <option value="tiga">3</option>
-                <option value="empat">4</option>
-                <option value="lima">5</option>
-                <option value="enam">6</option>
-                <option value="tujuh">7</option>
-                <option value="delapan">8</option>
-                <option value="sembilang">9</option>
-                <option value="sepuluh">10</option>
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
             </select>
         <br></br>
         <label for="lname">Masukin rentang rating buat user (angka saja) = </label>
         <select id="rating" name="angkarating">
-            <option value="satu"selected>1.0</option>
-            <option value="dua">2.0</option>
-            <option value="tiga" >3.0</option>
-            <option value="empat">4.0</option>
-            <option value="lima">5.0</option>
-            <option value="enam">6.0</option>
-            <option value="tujuh">7.0</option>
-            <option value="delapan">8.0</option>
-            <option value="sembilang">9.0</option>
-            <option value="sepuluh">10</option>
+            <option value="1"selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
         </select>
         <br></br>
         <button class="button" name="submit" style="vertical-align:middle"><span>Submit</span></button>

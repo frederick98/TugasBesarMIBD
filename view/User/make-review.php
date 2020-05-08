@@ -14,10 +14,10 @@
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
     <!-- Title -->
-    <title>Ramen Review</title>
+    <title>Tambah Review Ramen</title>
 
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../lib/user/style.css">
 
 </head>
 
@@ -40,7 +40,7 @@
                     <div class="col-12 d-flex align-items-center justify-content-between">
                         <!-- Logo Area -->
                         <div class="logo">
-                            <a href="index.html"><img src="img/core-img/Ramenku.jpg" alt=""></a>
+                            <a href="user.php"><img src="../lib/user/img/core-img/Ramenku.jpg" alt=""></a>
                         </div>
 
                         <!-- Search & Login Area -->
@@ -54,7 +54,7 @@
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                                <a href="../index.php"><span>Log Out</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -85,12 +85,12 @@
                             <!-- Nav Start -->
                             <div class="classynav">
                                 <ul>
-                                    <li><a href="index.html">Home</a></li>
-                                    <li><a href="ramen-review.html">Ramen</a></li>
-                                    <li><a href="restaurant-review.html">Restaurant</a></li>
-                                    <li><a href="reviewer.html">Our Reviewer</a></li>
-                                    <li><a href="make-review.html">Make Your own Review</a></li>
-                                    <li><a href="contact.html">Contact Us</a></li>
+                                    <li><a href="user.php">Home</a></li>
+                                    <li><a href="ramen-review.php">Ramen</a></li>
+                                    <li><a href="restaurant-review.php">Restaurant</a></li>
+                                    <li><a href="reviewer.php">Our Reviewer</a></li>
+                                    <li><a href="make-review.php">Make Your own Review</a></li>
+                                    <li><a href="contact.php">Contact Us</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
@@ -367,15 +367,15 @@
 
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
-    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script src="../lib/user/js/jquery/jquery-2.2.4.min.js"></script>
     <!-- Popper js -->
-    <script src="js/bootstrap/popper.min.js"></script>
+    <script src="../lib/user/js/bootstrap/popper.min.js"></script>
     <!-- Bootstrap js -->
-    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="../lib/user/js/bootstrap/bootstrap.min.js"></script>
     <!-- All Plugins js -->
-    <script src="js/plugins/plugins.js"></script>
+    <script src="../lib/user/js/plugins/plugins.js"></script>
     <!-- Active js -->
-    <script src="js/active.js"></script>
+    <script src="../lib/user/js/active.js"></script>
 </body>
 
 </html>
