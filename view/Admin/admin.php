@@ -1,3 +1,7 @@
+<?php
+    include "../../controller/db_connect.php"
+?>
+
 <!DOCTYPE html>
 <html>
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -157,7 +161,7 @@
                     <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Top 10 Review's</h2>
                 </div>
             </div>
-            <div class = "urutanrating">
+            <!-- <div class = "urutanrating">
                 <label for="lname">Memilih Rating </label>
                 <select id="rating" name="angkarating">
                     <option value="satu"selected>1.0</option>
@@ -171,30 +175,68 @@
                     <option value="sembilang">9.0</option>
                     <option value="sepuluh">10</option>
                 </select>
-            </div>
+            </div> -->
             <br>
         </div>
 
         <div class="tab-content wow fadeInUp" data-wow-delay="500ms" id="myTabContent">
             <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="ramen-tab">
-                <!-- Top 10 Ramen Slideshow -->
-                <div class="popular-games-slideshow owl-carousel">
+                <!-- Top 10 Ramen Slideshow
+                <div class="popular-games-slideshow owl-carousel"> -->
 
                     <!-- Ramen -->
-                    <div class="single-games-slide">
-                        <img src="../lib/admin/img/bg-img/beef-ramen.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Beef Ramen</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Ramen Ya! Bandung</a>
-                            </div>
-                        </div>
+                    <div>
+                        <table class="table table-hover table-striped" id="table_ramen">
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>Nama Ramen</th>
+                                    <th>Harga</th>
+                                    <th>Nama Resto</th>
+                                    <th>Rating</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                    $sql1 = "select top 1 minReview from config";
+                                    $minRev = mysqli_query($connection, $sql1);
+
+                                    $sql2 = "select * 
+                                                from ramen
+                                                    inner join dibuatdi on dibuatdi.idRamen = ramen.idRamen
+                                                    inner join restoran on restoran.idRestoran = dibuatdi.idRestoran
+                                                    inner join review on review.idRamen = ramen.idRamen
+                                                    inner join kota on kota.idKota = restoran.idKota
+                                                    left outer join(
+                                                        select ramen.idRamen, count(review.idReview) as 'total'
+                                                            from review
+                                                                inner join ramen on ramen.idRamen = review.idRamen
+                                                            group by ramen.idRamen
+                                                    ) as tR on tR.idRamen = ramen.idRamen
+                                                where tR.total > '$minRev'
+                                                order by tR.total asc";
+                                    $semuaRamen = mysqli_query($connection, $sql2);
+                                    
+                                    $totalRamen = mysqli_num_rows($semuaRamen);
+                                    
+                                    // Ramen 
+                                    $i = 1;
+                                    while($i<=10 and $row=mysqli_fetch_array($semuaRamen)){
+                                        echo "<tr>";
+                                        echo "<td>" . $i .  "</td>";
+                                        echo "<td>" . $row['namaRamen'] . "</td>";
+                                        echo "<td>" . $row['harga'] . "</td>";
+                                        echo "<td>" . $row['namaRestoran'] . "</td>";
+                                        echo "<td>" . $row['rating'] . "</td>";
+                                        echo "</tr>";
+
+                                        $i += 1;
+                                    }
+                                ?>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <!--Input top 10 tingal copas dari yang ramen-->
-
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </section>
