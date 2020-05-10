@@ -106,9 +106,54 @@
             </div>
         </div>
     </header>
-
-    <!-- ##### Top 10 Area Start ##### -->
+<div class="w3-container ">
+    <div class="w3-panel  w3-medium">
+      <h2>Admin Control Page</h2>
+    </div>
+<div class="kotak">
+    <form method="POST" action="../../controller/admin_control.php">
+        <label for="box">Menentukan berapa minimal review buat ramen biar masuk top 10 = </label>
+            <select id="review" name="angkareview">
+                <option value="1" selected>1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+            </select>
+        <br></br>
+        <label for="lname">Masukin rentang rating buat user (angka saja) = </label>
+        <select id="rating" name="angkarating">
+            <option value="1"selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <br></br>
+        <button class="button" name="submit" style="vertical-align:middle"><span>Submit</span></button>
+      </form>
+</div>
+    <br>
+         <!-- ##### Top 10 Area Start ##### -->
     <section class="monthly-picks-area section-padding-100 bg-pattern">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="left-right-pattern"></div>
+                </div>
+            </div>
+        </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -116,13 +161,32 @@
                     <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Top 10 Review's</h2>
                 </div>
             </div>
+            <!-- <div class = "urutanrating">
+                <label for="lname">Memilih Rating </label>
+                <select id="rating" name="angkarating">
+                    <option value="satu"selected>1.0</option>
+                    <option value="dua">2.0</option>
+                    <option value="tiga" >3.0</option>
+                    <option value="empat">4.0</option>
+                    <option value="lima">5.0</option>
+                    <option value="enam">6.0</option>
+                    <option value="tujuh">7.0</option>
+                    <option value="delapan">8.0</option>
+                    <option value="sembilang">9.0</option>
+                    <option value="sepuluh">10</option>
+                </select>
+            </div> -->
+            <br>
         </div>
 
         <div class="tab-content wow fadeInUp" data-wow-delay="500ms" id="myTabContent">
             <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="ramen-tab">
-                <div class="row justify-content-md-center">
-                    <div class="col-10">
-                    <table class="table table-dark table-hover table-striped" id="table_ramen">
+                <!-- Top 10 Ramen Slideshow
+                <div class="popular-games-slideshow owl-carousel"> -->
+
+                    <!-- Ramen -->
+                    <div>
+                        <table class="table table-hover table-striped" id="table_ramen">
                             <thead>
                                 <tr>
                                     <th>Rank</th>
@@ -172,58 +236,12 @@
                             </tbody>
                         </table>
                     </div>
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </section>
     <!-- ##### Top 10 Area End ##### -->
-    <br>
 
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="w3-container">
-                    <div class="w3-panel  w3-medium">
-                        <h2>Admin Control Page</h2>
-                    </div>
-                    <div class="kotak">
-                        <form method="POST" action="../../controller/admin_control.php">
-                            <label for="box">Menentukan berapa minimal review buat ramen biar masuk top 10 = </label>
-                            <select id="review" name="angkareview">
-                                <option value="1" selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <br></br>
-                            <label for="lname">Masukin rentang rating buat user (angka saja) = </label>
-                            <select id="rating" name="angkarating">
-                                <option value="1"selected>1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
-                                <option value="9">9</option>
-                                <option value="10">10</option>
-                            </select>
-                            <br></br>
-                            <button class="button" name="submit" style="vertical-align:middle"><span>Submit</span></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>                                
-    </div>
-    
     <!-- ##### All Javascript Script ##### -->
     <!-- jQuery-2.2.4 js -->
     <script src="../lib/admin/js/jquery/jquery-2.2.4.min.js"></script>

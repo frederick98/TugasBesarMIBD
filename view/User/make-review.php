@@ -135,7 +135,7 @@
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Choose Ramen's name</span>
 					<div>
-						<select class="js-select2" name="ramenDropdown">
+						<select class="js-select2" name="regRamenDropdown">
 							<option>-</option>
 							<?php
                                 // ambil daftar ramen dari database
@@ -153,7 +153,7 @@
 
 				<div class="wrap-input100 validate-input bg1">
 					<span class="label-input100">Same Restaurant Name? Choose here</span>
-                    <select class="js-select2" name="restoranDropdown">
+                    <select class="js-select2" name="regRestoranDropdown">
 						<option>-</option>
 						<?php
                             // ambil daftar ramen dari database
@@ -168,15 +168,15 @@
 					</select>
                     <br>
 					<span class="label-input100">Different Restaurant? insert here</span>
-                    <input class="input100" type="text" name="restoranName" placeholder="Enter Restaurant Name">
+                    <input class="input100" type="text" name="regRestoranName" placeholder="Enter Restaurant Name">
                     <span class="label-input100">Enter New Restaurant City</span>
-					<input class="input100" type="text" name="restoranCityInsert" placeholder="Enter Restaurant City">
+					<input class="input100" type="text" name="regRestoranCity" placeholder="Enter Restaurant City">
                     <span class="label-input100">Different place, different Ramen's Price? insert the price</span>
-					<input class="input100" type="text" name="ramenPrice" placeholder="Enter Ramen Price">
+					<input class="input100" type="text" name="regRamenPrice" placeholder="Enter Ramen Price">
 				
                     <span class="label-input100">Choose Restaurant's City</span>
 					<div>
-						<select class="js-select2" name="kotaDropdown">
+						<select class="js-select2" name="regKotaDropdown">
 							<option>-</option>
                             <?php
                                 // ambil daftar restoran dari database
@@ -217,7 +217,7 @@
 
 				<div class="wrap-input100 validate-input bg1 rs1-wrap-input100">
 					<span class="label-input100">Score Ramen Review</span>
-					<input class="input100" type="text" name="email" placeholder="Enter Your Score ">
+					<input class="input100" type="text" name="regRamenRating" placeholder="Enter Your Score ">
 				</div>
 
 				<!-- <div class="wrap-input100 bg1 rs1-wrap-input100">
@@ -227,11 +227,11 @@
 
 				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
 					<span class="label-input100">What your review</span>
-					<textarea class="input100" name="ramenReview" placeholder="Your review here..."></textarea>
+					<textarea class="input100" name="regRamenReview" placeholder="Your review here..."></textarea>
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" name="submit">
+					<button class="contact100-form-btn" name="submit1">
 						<span>
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
@@ -244,32 +244,32 @@
             <br>
             <br>
 
-            <form class="contact100-form validate-form" action="../../controller/submit_form1.php" method="POST">
+            <form class="contact100-form validate-form" action="../../controller/submit_form.php" method="POST">
 				<span class="contact100-form-title">
 					Completely New Ramen? Let us know by filling below!
 				</span>
 
 				<div class="wrap-input100 validate-input bg1">
 					<span class="label-input100">Ramen Name</span>
-					<input class="input100" type="text" name="ramenName" placeholder="Enter Ramen Name">
+					<input class="input100" type="text" name="nRamenName" placeholder="Enter Ramen Name">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1">
 					<span class="label-input100">Ramen price</span>
-					<input class="input100" type="text" name="ramenPrice" placeholder="Enter Ramen Price">
+					<input class="input100" type="text" name="nRamenPrice" placeholder="Enter Ramen Price">
 				</div>
 
 				<div class="wrap-input100 validate-input bg1">
 					<span class="label-input100">Restaurant Name</span>
-                    <input class="input100" type="text" name="restoranName" placeholder="Enter Restaurant Name">
+                    <input class="input100" type="text" name="nRestoranName" placeholder="Enter Restaurant Name">
                     <span class="label-input100">Enter New Restaurant City</span>
-					<input class="input100" type="text" name="restoranCityInsert" placeholder="Enter Restaurant City">
+					<input class="input100" type="text" name="nRestoranCity" placeholder="Enter Restaurant City">
 				</div>
 
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Check if the restaurant has registered</span>
 					<div>
-						<select class="js-select2" name="restoranDropdown">
+						<select class="js-select2" name="nRestoranDropdown">
 							<option>-</option>
                             <?php
                                 // ambil daftar restoran dari database
@@ -286,7 +286,7 @@
                     </div>
                     <span class="label-input100">Choose Restaurant's City</span>
 					<div>
-						<select class="js-select2" name="kotaDropdown">
+						<select class="js-select2" name="nkotaDropdown">
 							<option>-</option>
                             <?php
                                 // ambil daftar restoran dari database
@@ -307,7 +307,7 @@
                 
                 <div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Ramen Picture</span>
-					<button class="contact100-form-btn">
+					<button class="contact100-form-btn" action="#">
 						<span>
 							Enter Your Picture Here
 						</span>
@@ -325,18 +325,20 @@
 
 				<div class="wrap-input100 input100-select bg1">
 					<span class="label-input100">Pick Ramen's Rating</span>
-                    <select class="js-select2" name="ramenRatingDropdown">
+                    <select class="js-select2" name="nRamenRating">
 						<option>-</option>
                         <?php
                              // ambil daftar restoran dari database
                             $sql = "select rating 
                                         from config";
                             $result = mysqli_query($connection, $sql);
-
-                            while($row = mysqli_fetch_array($result)){
-                                $restoran = $row['namaKota'];
-                                echo "<option>" . $restoran . "</option>";
-                            }
+							$i = 0;
+							while($i < $sql){
+								while($row = mysqli_fetch_array($result)){
+									$restoran = $row['namaKota'];
+									echo "<option>" . $restoran . "</option>";
+								}
+							}
                         ?>
 					</select>
 					<!-- <input class="input100" type="text" name="email" placeholder="Enter Your Score "> -->
@@ -349,11 +351,11 @@
 
 				<div class="wrap-input100 validate-input bg0 rs1-alert-validate" data-validate = "Please Type Your Message">
 					<span class="label-input100">What your review</span>
-					<textarea class="input100" name="ramenReview" placeholder="Your review here..."></textarea>
+					<textarea class="input100" name="nRamenReview" placeholder="Your review here..."></textarea>
 				</div>
 
 				<div class="container-contact100-form-btn">
-					<button class="contact100-form-btn" name="submit">
+					<button class="contact100-form-btn" name="submit2">
 						<span>
 							Submit
 							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>

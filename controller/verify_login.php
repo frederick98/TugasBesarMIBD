@@ -3,6 +3,7 @@
     session_start();
 
     $_SESSION['name'] = "";
+    $_SESSION['idUser'] = "";
 
     if(isset($_POST['username']) and isset($_POST['pass'])){
         // masukin value POST ke variable
@@ -26,6 +27,7 @@
                     </script>";
             }
             else{
+                $_SESSION['idUser'] = $row['idUser'];
                 $_SESSION['name'] = $row['nama'];
                 echo 
                     "<script> 

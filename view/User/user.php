@@ -1,5 +1,5 @@
 <?php
-    include "../../controller/top10_ramen.php";
+    // include "../../controller/top10_ramen.php";
     session_start();
 ?>
 
@@ -130,7 +130,7 @@
             </div>
 
             <!-- Single Slide -->
-            <div class="single-slide bg-img bg-overlay" style="background-image: url(lib/user/img/bg-img/carousel2.jpg);">
+            <div class="single-slide bg-img bg-overlay" style="background-image: url(../lib/user/img/bg-img/carousel2.jpg);">
                 <!-- Blog Content -->
                 <div class="container h-100">
                     <div class="row h-100 align-items-center">
