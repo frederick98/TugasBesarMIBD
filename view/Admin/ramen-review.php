@@ -126,7 +126,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-
                     <!-- tabel daftar ramen -->
                     <div>
                         <table class="table table-hover table-striped" id="table_ramen">
@@ -157,45 +156,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <!--
-                    <!-- *** Single Review Area *** --
-                    <div class="single-game-review-area d-flex flex-wrap mb-30">
-                        <div class="game-thumbnail">
-                            <img src="../lib/admin/img/bg-img/ramen1.jpg" alt="">
-                        </div>
-                        <div class="game-content">
-                            <a href="" class="game-title">Beef Ramen</a><!--Nama Ramen--
-                            <div class="game-meta">
-                                <a href="#" class="game-date">May 05, 2020</a> <!--Tanggal Review--
-                                <a href="#" class="game-comments">Andi Ramen</a><!--Nama reviewer--
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
-                            <!--Rating Area --
-                            <div class="download-rating-area d-flex align-items-center justify-content-between">
-                                <div class="rating-area text-center">
-                                    <h3>9.1</h3><!--Nilai--
-                                    <div class="stars">
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-                                        <i class="fa fa-star-half-o" aria-hidden="true"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    -->
-
-                    <!-- ### Pagination Area ### -->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination mt-100">
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
