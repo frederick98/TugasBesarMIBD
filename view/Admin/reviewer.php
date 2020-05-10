@@ -165,33 +165,6 @@
                             </tbody>
                         </table>
                     </div>
-
-                    <!--
-                    <div class="single-game-review-area d-flex flex-wrap mb-30">
-                        <div class="game-thumbnail">
-                            <img src="../lib/admin/img/bg-img/reviewer1.jpg" alt="">
-                        </div>
-                        <div class="game-content">
-                            <a href="" class="game-title">Neneng</a><!--Nama Restauant Ramen--
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
-                            <!--Rating Area --
-                            <div class="download-rating-area d-flex align-items-center justify-content-between">
-                                <div class="rating-area text-center">
-                                    <h5>Total Review: 45 review</h5><!--Nilai--
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    -->
-
-                    <!-- ### Pagination Area ### -->
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination mt-100">
-                            <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                            <li class="page-item"><a class="page-link" href="#">02</a></li>
-                            <li class="page-item"><a class="page-link" href="#">03</a></li>
-                        </ul>
-                    </nav>
                 </div>
             </div>
         </div>
